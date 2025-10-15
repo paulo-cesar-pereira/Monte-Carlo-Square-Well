@@ -1,11 +1,7 @@
 #include <iostream>
-#include <iomanip>
 #include <fstream>
 #include <time.h>
-#include <vector>
-#include <stdio.h>
 #include <stdlib.h>
-#include <array>
 #include <cmath>
 using namespace std;
 
@@ -174,4 +170,5 @@ int main (){
 
 	delete particulas;
 	return 0;
+
 }
