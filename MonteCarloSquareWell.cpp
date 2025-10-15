@@ -44,17 +44,17 @@ struct Float2 {
 
 // Função que corrige a posição, caso ela caia fora da caixa
 void corrigePosicao(Float2& pos){
-    if(pos.x > L) pos.x -= L;
+    if(pos.x >= L) pos.x -= L;
     else if(pos.x < 0.0f) pos.x += L;
-    if(pos.y > L) pos.y -= L;
+    if(pos.y >= L) pos.y -= L;
     else if(pos.y < 0.0f) pos.y += L;
 }
 
 // Função que corrige a distância entre duas partículas, no caso de haver partícula imagem mais próxima
 void corrigeDistancia(Float2& dist){
-    if(dist.x > mL) dist.x -= L;
+    if(dist.x >= mL) dist.x -= L;
     else if(dist.x < -mL) dist.x += L;
-    if(dist.y > mL) dist.y -= L;
+    if(dist.y >= mL) dist.y -= L;
     else if(dist.y < -mL) dist.y += L;
 }
 
@@ -148,7 +148,7 @@ int main (){
 		ia = rand() % N;
 
 		// Calcula a variação de energia para um deslocamento aleatório dessa partícula
-		varenergia = particulas->variacaoEnergia(ia, deslocamentoAleatorio(drmax));
+		varenergia = particulas->variacaoEnergia(ia, deslocamentoAleatorio());
 		
 		// Algoritmo de Metropolis aceita a nova configuração, caso a energia não tenha aumentado
 		if(varenergia <= 0) particulas->atualizaPosicao(ia);
@@ -172,3 +172,4 @@ int main (){
 	return 0;
 
 }
+
